@@ -1,0 +1,61 @@
+---
+import {Image} from 'astro:assets'
+import Layout from "../layouts/Layout.astro";
+import laracon from '../assets/images/laracon-eu.jpg'
+---
+<Layout>
+  <section id="hero" class="px-4">
+		<div class="max-w-7xl mx-auto py-36">
+			<h1 class="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+				Who is Steve?
+			</h1>
+			<p class="max-w-2xl mt-6 text-xl text-zinc-600 dark:text-zinc-400">
+				Meet Steve McDougall, also known as JustSteveKing, a passionate software engineer, Developer Advocate, and Laravel enthusiast from the Welsh Valleys, UK.
+      </p>
+		</div>
+	</section>
+
+  <section id="about">
+    <div class="relative">
+      <div class="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">
+        <div class="lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:absolute xl:inset-y-0 xl:right-1/2 xl:w-1/2">
+          <div class="relative h-80 lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
+            <Image
+              src={laracon}
+              alt={'Speaking at Laracon EU in Lisbon'}
+              class="absolute inset-0 h-full w-full bg-gray-50 object-cover object-left"
+              width={2560}
+              height={3413}
+            />
+          </div>
+        </div>
+        <div class="px-6 lg:contents">
+          <div class="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2">
+            <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              On a mission to improve API education.
+            </h2>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              Hi there! I'm Steve McDougall, but you might know me better as JustSteveKing. Welcome to my little corner of the internet where I share my journey and experiences in the tech world. I'm based in the lovely Welsh Valleys in the UK, and I've got my hands in a few different pots when it comes to software engineering.
+            </p>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              So, what do I do? Well, I wear a couple of hats. By day, I'm a Developer Advocate at Treblle, diving deep into the world of REST-based APIs. It's all about making life easier for engineering and DevOps teams, helping them build and maintain APIs with less hassle.
+            </p>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              But there's more to me than my day job. I also work as a Consultant CTO, juggling digital transformation projects, strategizing on API development, and dishing out open-source advice. It's a role that takes me around the globe (virtually, at least), helping shape tech strategies for various clients.
+            </p>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              When I'm not knee-deep in code or consulting, I love to connect with the tech community. I run a Substack publication and a YouTube channel, both under the name JustSteveKing, where I talk about all things Laravel and APIs. It's my way of breaking down tech topics and fighting the dreaded imposter syndrome that we developers sometimes face.
+            </p>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              I also enjoy sharing my knowledge through writing. You can find some of my tutorials and articles over at Laravel News, where I explore different aspects of software engineering. And if you catch me at a conference or a PHP user group, I'm probably the guy on stage, talking about something techy.
+            </p>
+            <p class="mt-6 text-xl leading-8 text-gray-700">
+              My philosophy? It's all about bridging technology with community. I believe in empowering developers, fostering collaborative learning, and creating supportive spaces for everyone who's passionate about tech. For me, learning is a lifelong journey, and there's nothing better than sharing what you know with others.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</Layout>

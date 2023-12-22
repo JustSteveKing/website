@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Layout from "./../../layouts/Layout.astro"
+
+const talks = await getCollection('talks');
+---
+<Layout>
+  <section id="hero" class="px-4">
+		<div class="max-w-7xl mx-auto py-36">
+			<h1 class="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+				My Talks
+			</h1>
+			<p class="max-w-2xl mt-6 text-xl text-zinc-600 dark:text-zinc-400">
+        Here, I share my experiences and insights from various conferences and tech events. Each talk is a journey through the vibrant world of software development, where I delve into topics like Laravel, API strategies, and the art of coding efficiently. Whether you're a seasoned developer or just starting out, there's something here to inspire and ignite your passion for tech. Join me as we explore the ever-evolving landscape of software engineering together!
+      </p>
+		</div>
+	</section>
+
+  <section id="talks" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+    {talks.map(talk => (
+      <article class="relative isolate flex flex-col gap-8 lg:flex-row py-4">
+      <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+        <Image
+          src={talk.data.image}
+          alt={talk.data.title}
+          height={200}
+          width={100}
+          class="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover object-center"
+        />
+        <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+      </div>
+      <div>
+        <div class="flex items-center gap-x-4 text-xs">
+          <a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+            {talk.data.type}
+          </a>
+        </div>
+        <div class="group relative max-w-xl">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              {talk.data.title}
+            </a>
+          </h3>
+          <p class="mt-5 text-sm leading-6 text-gray-600">
+            {talk.data.description}</p>
+        </div>
+      </div>
+    </article>
+    ))}
+  </section>
+</Layout>

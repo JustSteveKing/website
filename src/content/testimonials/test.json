@@ -1,0 +1,7 @@
+{
+  "name": "Test Person",
+  "role": "Some Job",
+  "company": "Some Company",
+  "avatar": "https://github.com/laravel.png",
+  "content": "This is the content of the testimonial."
+}

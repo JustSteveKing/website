@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="flex max-w-xl flex-col items-start justify-between py-4">
+  <div class="group relative">
+    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+      <a href={`/articles/${post.slug}`}>
+        <span class="absolute inset-0"></span>
+        {post.data.title}
+      </a>
+    </h3>
+    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+      {post.data.description}
+    </p>
+  </div>
+  <div class="relative flex items-center gap-x-4">
+    <Image
+      src={'https://github.com/juststeveking.png'}
+      alt="Steve McDougall"
+      height={300}
+      width={300}
+      class="h-10 w-10 rounded-full bg-gray-50"
+    />
+    <div class="text-sm leading-6">
+      <p class="font-semibold text-gray-900">
+        <a href="#">
+          <span class="absolute inset-0"></span>
+          Steve McDougall
+        </a>
+      </p>
+      <p class="text-gray-600">Developer Relations @ Treblle</p>
+    </div>
+  </div>
+</article>

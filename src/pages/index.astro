@@ -1,0 +1,218 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+
+import laracon from './../assets/images/laracon-eu.jpg';
+import speaking from './../assets/images/talking.png';
+import writing from './../assets/images/writing.png';
+import youtube from './../assets/images/youtube.png';
+import { SITE_TITLE } from '../config';
+import PostCard from '../components/PostCard.astro';
+
+const testimonials = await getCollection('testimonials');
+const testimonial = testimonials[Math.floor(Math.random() * testimonials.length)]
+
+const collection = await getCollection('posts');
+const posts = collection.sort(
+	(a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
+const sponsors = await getCollection('sponsors');
+---
+
+<Layout>
+	<section id="hero" class="px-4">
+		<div class="max-w-7xl mx-auto py-36">
+			<h1 class="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+				JustSteveKing
+			</h1>
+			<p class="max-w-2xl mt-6 text-xl text-zinc-600 dark:text-zinc-400">
+				Welcome to my website, the realm of the API Guy. Led by a seasoned Consultant CTO, Software Engineer, Developer Advocate, and renowned Conference Speaker.
+			</p>
+			<div class="mt-6 flex gap-6">
+				<SocialLinks />
+			</div>
+		</div>
+	</section>
+
+	<section id="sponsors" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+		<div class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+			{sponsors.map(sponsor => (
+				<Image
+					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+					src={sponsor.data.logo}
+					alt={sponsor.data.name}
+					width={158}
+					height={48}
+				/>
+			))}
+		</div>
+		<div class="mt-16 flex justify-center">
+			<p class="relative rounded-full bg-gray-50 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5">
+				<span class="hidden md:inline">Over 2500 companies use our tools to better their business.</span>
+				<a href="#" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true"></span> Read our customer stories <span aria-hidden="true">&rarr;</span></a>
+			</p>
+		</div>
+	</section>
+
+	<section id="about" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+			<div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+				<div class="lg:pl-20">
+					<div class="max-w-xs px-2.5 lg:max-w-none">
+						<Image
+							src={laracon}
+							alt={SITE_TITLE}
+							class="aspect-auto rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+							height={800}
+							width={800}
+						/>
+					</div>
+				</div>
+				<div class="lg:order-first lg:row-span-2">
+					<h2 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+						Who is Steve?
+					</h2>
+					<div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+						<p>
+							Hey there! I'm Steve McDougall, but in the tech community, I'm often known as JustSteveKing. I'm a tech enthusiast from the scenic Welsh Valleys who loves diving into the complexities of software engineering, especially PHP and Laravel.
+						</p>
+						<p>
+							My day-to-day role as a Developer Advocate at Treblle has me exploring the intricacies of REST-based APIs. It's a space where I get to blend my technical skills with my passion for making complex things simple for other engineers and DevOps teams.
+						</p>
+						<p>
+							But that's just one side of the coin. In the digital realm, I'm also deeply engaged in sharing knowledge and experiences. Whether it's through my writings, my YouTube channel, or speaking at various tech events, I'm all about demystifying technology and empowering fellow developers.
+						</p>
+						<p>
+							I believe in the power of community and continual learning. For me, it's not just about writing code; it's about connecting, sharing, and growing together. So, join me on this journey of exploration and discovery in the world of tech!
+						</p>
+					</div>
+				</div>
+				<div class="lg:pl-20">
+					<ul role="list">
+						<li class="flex">
+							<a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="#">
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
+									<path d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z"></path>
+								</svg>
+								<span class="ml-4">Developer Relations at Treblle</span>
+							</a>
+						</li>
+						<li class="mt-4 flex">
+							<a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="#">
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
+									<path d="M12 3c-2.444 0-2.75.01-3.71.054-.959.044-1.613.196-2.185.418A4.412 4.412 0 0 0 4.51 4.511c-.5.5-.809 1.002-1.039 1.594-.222.572-.374 1.226-.418 2.184C3.01 9.25 3 9.556 3 12s.01 2.75.054 3.71c.044.959.196 1.613.418 2.185.23.592.538 1.094 1.039 1.595.5.5 1.002.808 1.594 1.038.572.222 1.226.374 2.184.418C9.25 20.99 9.556 21 12 21s2.75-.01 3.71-.054c.959-.044 1.613-.196 2.185-.419a4.412 4.412 0 0 0 1.595-1.038c.5-.5.808-1.002 1.038-1.594.222-.572.374-1.226.418-2.184.044-.96.054-1.267.054-3.711s-.01-2.75-.054-3.71c-.044-.959-.196-1.613-.419-2.185A4.412 4.412 0 0 0 19.49 4.51c-.5-.5-1.002-.809-1.594-1.039-.572-.222-1.226-.374-2.184-.418C14.75 3.01 14.444 3 12 3Zm0 1.622c2.403 0 2.688.009 3.637.052.877.04 1.354.187 1.67.31.421.163.72.358 1.036.673.315.315.51.615.673 1.035.123.317.27.794.31 1.671.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637c-.04.877-.187 1.354-.31 1.67-.163.421-.358.72-.673 1.036a2.79 2.79 0 0 1-1.035.673c-.317.123-.794.27-1.671.31-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052c-.877-.04-1.354-.187-1.67-.31a2.789 2.789 0 0 1-1.036-.673 2.79 2.79 0 0 1-.673-1.035c-.123-.317-.27-.794-.31-1.671-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637c.04-.877.187-1.354.31-1.67.163-.421.358-.72.673-1.036.315-.315.615-.51 1.035-.673.317-.123.794-.27 1.671-.31.95-.043 1.234-.052 3.637-.052Z"></path>
+									<path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm0-7.622a4.622 4.622 0 1 0 0 9.244 4.622 4.622 0 0 0 0-9.244Zm5.884-.182a1.08 1.08 0 1 1-2.16 0 1.08 1.08 0 0 1 2.16 0Z"></path>
+								</svg>
+								<span class="ml-4">Content Creator on YouTube</span>
+							</a>
+						</li>
+						<li class="mt-4 flex">
+							<a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="#">
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.475 2 2 6.588 2 12.253c0 4.537 2.862 8.369 6.838 9.727.5.09.687-.218.687-.487 0-.243-.013-1.05-.013-1.91C7 20.059 6.35 18.957 6.15 18.38c-.113-.295-.6-1.205-1.025-1.448-.35-.192-.85-.667-.013-.68.788-.012 1.35.744 1.538 1.051.9 1.551 2.338 1.116 2.912.846.088-.666.35-1.115.638-1.371-2.225-.256-4.55-1.14-4.55-5.062 0-1.115.387-2.038 1.025-2.756-.1-.256-.45-1.307.1-2.717 0 0 .837-.269 2.75 1.051.8-.23 1.65-.346 2.5-.346.85 0 1.7.115 2.5.346 1.912-1.333 2.75-1.05 2.75-1.05.55 1.409.2 2.46.1 2.716.637.718 1.025 1.628 1.025 2.756 0 3.934-2.337 4.806-4.562 5.062.362.32.675.936.675 1.897 0 1.371-.013 2.473-.013 2.82 0 .268.188.589.688.486a10.039 10.039 0 0 0 4.932-3.74A10.447 10.447 0 0 0 22 12.253C22 6.588 17.525 2 12 2Z"></path>
+								</svg>
+								<span class="ml-4">Writer at Laravel News</span>
+							</a>
+						</li>
+						<li class="mt-4 flex">
+							<a class="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500" href="#">
+								<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500">
+									<path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z"></path>
+								</svg>
+								<span class="ml-4">Columnist at PhpArchitect</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+	</section>
+
+	<section id="blog" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+		<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+			Latest posts
+		</h2>
+		<p class="mt-2 text-lg leading-8 text-gray-600">
+			A collection of my blog posts, some are cross posts.
+		</p>
+
+
+		<div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+			{posts.slice(0,6).map(post => (
+				<PostCard post={post} />
+			))}
+		</div>
+
+	</section>
+
+	<section id="testimonials" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+		<div class="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-4xl">
+			<div class="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 bg-[radial-gradient(50%_100%_at_top,theme(colors.indigo.100),white)] opacity-20 lg:left-36"></div>
+			<div class="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center"></div>
+			<figure class="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
+				<div class="relative col-span-2 lg:col-start-1 lg:row-start-2">
+					<svg viewBox="0 0 162 128" fill="none" aria-hidden="true" class="absolute -top-12 left-0 -z-10 h-32 stroke-gray-900/10">
+						<path id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z" />
+						<use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86" />
+					</svg>
+					<blockquote class="text-xl font-semibold leading-8 sm:text-2xl sm:leading-9">
+						<p>{testimonial.data.content}</p>
+					</blockquote>
+				</div>
+				<div class="col-end-1 w-16 lg:row-span-4 lg:w-72">
+					<Image
+						src={testimonial.data.avatar}
+						alt={testimonial.data.name}
+						class="rounded-xl bg-indigo-50 lg:rounded-3xl"
+						height={400}
+						width={400}
+					/>
+				</div>
+				<figcaption class="text-base lg:col-start-1 lg:row-start-3">
+					<div class="font-semibold">{testimonial.data.name}</div>
+					<div class="mt-1">{testimonial.data.role} at {testimonial.data.company}</div>
+				</figcaption>
+			</figure>
+		</div>	
+	</section>
+
+	<section id="work" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+		<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+					Want to work with me?
+				</h2>
+				<p class="mt-6 text-base leading-7 text-gray-600">
+					I reguarly work with others giving talks, mentoring, and consulting. Feel free to reach out on any of my social channels if you want to work together.
+				</p>
+			</div>
+			<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+				<div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
+					<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+						<Image
+							src={speaking}
+							class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover object-top"
+							alt={'Speaking'}
+						/>
+					</div>
+					<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+						<Image
+							src={youtube}
+							alt={'YouTube'}
+							class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover object-center"
+						/>
+					</div>
+					<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+						<Image
+							src={writing}
+							alt={'Writing'}
+							class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover object-top"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
