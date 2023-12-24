@@ -4,7 +4,6 @@ import partytown from "@astrojs/partytown";
 import prefetch from "@astrojs/prefetch";
 import mdx from "@astrojs/mdx";
 import compress from "astro-compress";
-import sitemap from "@astrojs/sitemap";
 import webmanifest from "astro-webmanifest";
 
 import {
@@ -21,7 +20,6 @@ export default defineConfig({
     prefetch(),
     mdx(),
     compress(),
-    sitemap(),
     webmanifest({
       name: SITE_TITLE,
       description: SITE_DESCRIPTION,
