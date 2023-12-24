@@ -1,0 +1,25 @@
+---
+export interface Props {
+  link: string;
+  title: string;
+  style?: string;
+}
+
+const {
+    link, 
+    style = 'text-md font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-indigo-500 to-pink-600', 
+    title 
+} = Astro.props;
+---
+
+<a
+    href={`${link}?utm_campaign=juststeveking-website&utm_source=juststeveking&utm_medium=textlink&utm_term=social+share`}
+    class={style}
+    title={title}
+    aria-label={title}
+    target="_blank"
+    rel="noopener nofollow"
+>
+    <span class="sr-only">{title}</span>
+    <slot />
+</a>

@@ -4,6 +4,9 @@ import { getCollection } from 'astro:content';
 
 import Layout from "../../layouts/Layout.astro";
 
+import Section from '../../components/Section.astro';
+import Header from '../../components/Header.astro';
+import Subheading from '../../components/Subheading.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
@@ -15,41 +18,42 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const image = import(`./../../assets/images/articles/${entry.data.image}`)
+const image = `/images/articles/${entry.data.image}`
 ---
-<Layout title={entry.data.title}>
-  <section id="hero" class="px-4">
-		<div class="max-w-7xl mx-auto py-36">
-			<h1 class="text-5xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-				{ entry.data.title }
-			</h1>
-			<p class="max-w-2xl mt-6 text-xl text-zinc-600 dark:text-zinc-400">
-        {entry.data.description}
-      </p>
-		</div>
-	</section>
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={image}
+  canonical={entry.data.source}
+>
+  <Section id="hero" classList="max-w-7xl mx-auto py-36 px-4">
+		<Header>
+			{ entry.data.title }
+		</Header>
+		<Subheading classList={'max-w-2xl mt-6'}>
+      {entry.data.description}
+		</Subheading>
+	</Section>
 
-  <section id="content" class="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-
+  <Section id="content" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
     <figure class="my-16">
       <Image
-        class="aspect-auto w-full rounded-xl bg-gray-50 object-cover"
+        class="aspect-auto w-full rounded-xl object-cover"
         src={image}
         alt={entry.data.title}
         height={600}
         width={1080}
-        transition:animate="morph"
       />
-      <figcaption class="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-        <svg class="mt-0.5 h-5 w-5 flex-none text-gray-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <figcaption class="mt-4 flex gap-x-2 text-sm leading-6">
+        <svg class="mt-0.5 h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"></path>
         </svg>
         {entry.data.title}
       </figcaption>
     </figure>
 
-    <article class="prose lg:prose-xl max-w-7xl px-6 prose-code:py-4 prose-code:px-1">
+    <article class="prose lg:prose-xl max-w-7xl px-6 prose-code:py-4 prose-code:px-1 text-slate-900 dark:text-slate-50">
       <Content />
     </article>
-  </section>
+  </Section>
 </Layout>

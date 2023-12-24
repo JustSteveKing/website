@@ -1,0 +1,10 @@
+---
+interface Props {
+  classList?: string;
+}
+
+const { classList } = Astro.props
+---
+<li class={`${classList}`}>
+  <slot />
+</li>

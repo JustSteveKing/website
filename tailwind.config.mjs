@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+        body: ["Space Grotesk", "sans-serif"],
+        heading: ["Space Grotesk", "sans-serif"],
+      },
+		},
 	},
 	plugins: [
 		require('@tailwindcss/typography')

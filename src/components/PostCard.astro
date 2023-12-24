@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content';
 
+import Paragraph from './Paragraph.astro';
+import Subheading from './Subheading.astro';
+
 interface Props {
   post: CollectionEntry<"posts">;
 }
@@ -9,17 +12,17 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<article class="flex max-w-xl flex-col items-start justify-between py-4">
-  <div class="group relative">
-    <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-      <a href={`/articles/${post.slug}`}>
+<article class="flex max-w-xl flex-col items-start justify-between py-6">
+  <div class="group relative py-3">
+    <Subheading>
+      <a title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`}>
         <span class="absolute inset-0"></span>
         {post.data.title}
       </a>
-    </h3>
-    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+    </Subheading>
+    <Paragraph classList="mt-5 line-clamp-3">
       {post.data.description}
-    </p>
+    </Paragraph>
   </div>
   <div class="relative flex items-center gap-x-4">
     <Image
@@ -27,16 +30,15 @@ const { post } = Astro.props;
       alt="Steve McDougall"
       height={300}
       width={300}
-      class="h-10 w-10 rounded-full bg-gray-50"
+      class="h-12 w-12 rounded-full"
     />
     <div class="text-sm leading-6">
-      <p class="font-semibold text-gray-900">
-        <a href="#">
-          <span class="absolute inset-0"></span>
-          Steve McDougall
-        </a>
-      </p>
-      <p class="text-gray-600">Developer Relations @ Treblle</p>
+      <Paragraph classList="font-semibold">
+        Steve McDougall
+      </Paragraph>
+      <Paragraph>
+        Developer Relations @ Treblle
+      </Paragraph>
     </div>
   </div>
 </article>

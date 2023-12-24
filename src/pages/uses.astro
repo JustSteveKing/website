@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+
+import Layout from '../layouts/Layout.astro';
+
+import Section from '../components/Section.astro';
+import H2 from '../components/H2.astro';
+import Header from '../components/Header.astro';
+import Subheading from '../components/Subheading.astro';
+import Paragraph from '../components/Paragraph.astro';
+
+const hardware = await getCollection('hardware');
+const services = await getCollection('services');
+const software = await getCollection('software');
+---
+<Layout title="Uses">
+  <Section id="hero" classList="max-w-7xl mx-auto py-36 px-4">
+		<Header>
+			Uses
+		</Header>
+		<Subheading classList={'max-w-2xl mt-6'}>
+      Software I use, devices I love, and other things I recommend.
+		</Subheading>
+	</Section>
+
+  <Section id="hardware" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5 space-y-3">
+        <H2>Hardware</H2>
+        <Paragraph>Devices and equipment that I use.</Paragraph>
+      </div>
+      <div class="mt-10 lg:col-span-7 lg:mt-0">
+        <dl class="space-y-10">
+          {hardware.map(device => (
+            <div class="space-y-3">
+              <dt>
+                <Subheading classList="font-semibold">
+                  {device.data.title} - {device.data.spec}
+                </Subheading>
+              </dt>
+              <dd>
+                <Paragraph>
+                  {device.data.description}
+                </Paragraph>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="services" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5 space-y-3">
+        <H2>Hardware</H2>
+        <Paragraph>Services that I use, and would highly recommend.</Paragraph>
+      </div>
+      <div class="mt-10 lg:col-span-7 lg:mt-0">
+        <dl class="space-y-10">
+          {services.map(service => (
+            <div class="space-y-3">
+              <dt>
+                <Subheading classList="font-semibold">
+                  {service.data.title}
+                </Subheading>
+              </dt>
+              <dd>
+                <Paragraph>
+                  {service.data.description}
+                </Paragraph>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="software" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+    <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+      <div class="lg:col-span-5 space-y-3">
+        <H2>Software</H2>
+        <Paragraph>Software that I use to do my day to day work.</Paragraph>
+      </div>
+      <div class="mt-10 lg:col-span-7 lg:mt-0">
+        <dl class="space-y-10">
+          {software.map(item => (
+            <div class="space-y-3">
+              <dt>
+                <Subheading classList="font-semibold">
+                  {item.data.title}
+                </Subheading>
+              </dt>
+              <dd>
+                <Paragraph>
+                  {item.data.description}
+                </Paragraph>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </Section>
+</Layout>

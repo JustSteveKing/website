@@ -114,7 +114,7 @@ We have a default title and a `component` property that allows us to choose what
                     <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                         <header class="px-4 sm:px-6">
                             <div class="flex items-start justify-between">
-                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
+                                <h2 class="text-lg font-heading font-medium text-gray-900" id="slide-over-title">
                                     Panel title
                                 </h2>
                                 <div class="ml-3 flex h-7 items-center">

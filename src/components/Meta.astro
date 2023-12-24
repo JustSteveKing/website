@@ -1,0 +1,143 @@
+---
+import { Schema } from "astro-seo-schema";
+
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SCHEMA_NAME,
+  SCHEMA_URL,
+  TWITTER_HANDLE,
+  SCHEMA_IMAGE,
+  LINK_DISCORD,
+  LINK_GITHUB,
+  LINK_LINKEDIN,
+  LINK_TELEGRAM,
+  LINK_TWITTER,
+  LINK_YOUTUBE,
+  WORK_DESCRIPTION,
+  WORK_FACEBOOK,
+  WORK_FOUNDED,
+  WORK_INSTAGRAM,
+  WORK_LINKEDIN,
+  WORK_PLACE,
+  WORK_TITLE,
+  WORK_TWITTER,
+  WORK_URL,
+} from "../config";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+}
+
+const canonicalURL = `https://www.juststeveking.uk${Astro.url.pathname}`;
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = "/images/steve.png",
+  canonical = canonicalURL,
+} = Astro.props;
+---
+
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`https://www.juststeveking.uk${image}`} />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonical} />
+<meta property="twitter:title" content={title} />
+<meta name="twitter:creator" content={TWITTER_HANDLE}>
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={`https://www.juststeveking.uk${image}`} />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="theme-color" content="#2dd4bf" />
+
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="apple-touch-icon" href="/favicon.png" />
+
+<link
+  rel="preload"
+  href="/fonts/space-grotesk-v13-latin-regular.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="crossorigin"
+/>
+<link
+  rel="preload"
+  href="/fonts/space-grotesk-v13-latin-700.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="crossorigin"
+/>
+<style is:inline>
+  /* space-grotesk-regular - latin */
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    src:
+      local(""),
+      url("/fonts/space-grotesk-v13-latin-regular.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("/fonts/space-grotesk-v13-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* space-grotesk-700 - latin */
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 700;
+    src:
+      local(""),
+      url("/fonts/space-grotesk-v13-latin-700.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("/fonts/space-grotesk-v13-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+</style>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: SCHEMA_NAME,
+    givenName: "Steve",
+    familyName: "McDougall",
+    gender: "Male",
+    url: SCHEMA_URL,
+    image: `${Astro.site}images/avatar.webp`,
+    sameAs: [LINK_GITHUB, LINK_TWITTER, LINK_LINKEDIN, LINK_YOUTUBE],
+    jobTitle: WORK_TITLE,
+    worksFor: {
+      "@type": "Organization",
+      name: WORK_PLACE,
+      url: WORK_URL,
+      foundingDate: WORK_FOUNDED,
+      sameAs: [WORK_LINKEDIN, WORK_FACEBOOK, WORK_INSTAGRAM, WORK_TWITTER],
+      description: WORK_DESCRIPTION,
+    },
+    knowsAbout: [
+      "PHP",
+      "Laravel",
+      "Software Engineering",
+      "Software Architecture",
+      "Software Engineering Management",
+      "APIs",
+      "REST APIs",
+      "APIOps",
+      "Open API"
+    ],
+  }}
+/>

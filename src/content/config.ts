@@ -9,13 +9,40 @@ const events = defineCollection({
   }),
 });
 
+const hardware = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    spec: z.string(),
+    description: z.string(),
+  }),
+});
+
 const posts = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string(),
     image: z.string().optional(),
+    partner: z.string().optional(),
+    source: z.string().optional(),
     pubDate: z.date(),
+  }),
+});
+
+const services = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+const software = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
   }),
 });
 
@@ -52,7 +79,10 @@ const testimonials = defineCollection({
 
 export const collections = {
   events,
+  hardware,
   posts,
+  services,
+  software,
   sponsors,
   talks,
   testimonials,
