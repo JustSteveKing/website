@@ -7,7 +7,7 @@ import {
 
 const posts = await getCollection('posts');
 
-export function GET(context) {
+export function GET(context: any) {
   return rss({
     // `<title>` field in output xml
     title: SITE_TITLE,

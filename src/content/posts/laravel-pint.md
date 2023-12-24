@@ -55,10 +55,6 @@ Now run pint:
 ./vendor/bin/pint
 ```
 
-You should see an output similar to the below:
-
-![](statamic://asset::media::images/laravel-pint-first-run.png)
-
 We have lift off 🚀
 
 So let's now change our preset to PSR-12 and check the output:
@@ -74,10 +70,6 @@ Rerun pint and let's see the output:
 ```bash
 ./vendor/bin/pint
 ```
-
-You should see the following output:
-
-![](statamic://asset::media::images/laravel-pint-psr12.png)
 
 Let's inspect this a little. It has implemented rules like `single_trait_insert_per_statement` and `braces` and `new_with_braces`. What if we want to customize these a little? Well, we can turn rules on and off really easily. Let's turn off braces in our pint.json file:
 
@@ -96,11 +88,7 @@ That is it! It is simple to customize how you want to set up your code styles. N
 ./vendor/bin/pint —test
 ```
 
-![](statamic://asset::media::images/laravel-pint-test.png)
-
-Awesome right? Nice clean output, doing a dry run, seeing what will fail and why! So what happens if we want a little more information? I have fixed the files above and gone back to the user migration - and undone those changes so we can test it out. Let's do a dry run again, but this time we want to ask for verbose output using the `-v` flag:
-
-![](statamic://asset::media::images/laravel-pint-verbose-test.png)
+Awesome right? Nice clean output, doing a dry run, seeing what will fail and why! So what happens if we want a little more information? I have fixed the files above and gone back to the user migration - and undone those changes so we can test it out. Let's do a dry run again, but this time we want to ask for verbose output using the `-v` flag.
 
 We get excellent output, much like when using GitHub, of the changes that would be made. So we can see the code style issue, what it is being caught on, and what changes would happen if we fixed it - all from using one pretty simple command.
 

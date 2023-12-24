@@ -17,29 +17,19 @@ Various statistics were gathered from this survey, from location to gender and t
 
 The years of programming experience is interesting, and we have the majority of submissions sitting between 2 and 10 years - with 10-20 years leading closely behind. I wonder how much this will change this year?
 
-![Year of Experience](statamic://asset::media::images/state-of-laravel-2021/years-of-experience.png.png)
-
-Let's compare this to their Laravel experience:
-
-![](statamic://asset::media::images/state-of-laravel-2021/years-of-laravel-experience.png)
+Let's compare this to their Laravel experience.
 
 So the trend here is around what you would expect. Many developers with 2-5 years of experience are using Laravel, which is very similar to the years of programming experience. The reason we have nothing over ten years is due to Laravels age. You can see the point in people's careers that Laravel came out - and the impact it has had on people adopting it.
 
 Let's compare the usage of different PHP versions people are using next.
 
-![](statamic://asset::media::images/state-of-laravel-2021/php-version.png)
-
 It is good to see this statistic leaning this way. More and more people moving their PHP versions forward is a massive step for the PHP community as a whole. As our language progresses, we are becoming more strict on standards and patching, and this chart shows that nicely. There will always be legacy projects that are impossible to upgrade, or the client doesn't have the budget. But the trend is leaning towards the newer and better versions of our beloved language.
 
 Code editors is another interesting one. What are people using to write their code on a day-to-day basis?
 
-![](statamic://asset::media::images/state-of-laravel-2021/primary-code-editor.png)
-
 Leading the charge is PhpStorm. It is a fantastic product, and it is good to see so many in the community investing in quality tools. Coming in a close second is VS Code, which is getting better and better with each release - and with the right configuration, it can behave almost as well as PhpStorm. Will this year change at all? How about next year with the price increase of the licensing for PhpStorm? 
 
 Lastly, let's look at the Operating System usage.
-
-![](statamic://asset::media::images/state-of-laravel-2021/primary-operating-system.png)
 
 This is pretty well balanced, and you can see the effect of development tooling being focused around the Mac in the Laravel community having a big impact here. It isn't a huge difference between the main competitors - and I am very interested to see what the 0.18% use 👀
 
