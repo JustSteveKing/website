@@ -19,7 +19,6 @@ export default defineConfig({
     partytown(),
     prefetch(),
     mdx(),
-    compress(),
     webmanifest({
       name: SITE_TITLE,
       description: SITE_DESCRIPTION,
