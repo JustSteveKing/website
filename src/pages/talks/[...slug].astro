@@ -22,6 +22,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 const events = await getEntries(entry.data.events);
+const url: string = `https://www.juststeveking.uk${Astro.url.pathname}`;
+const imageUrl: string = `https://www.juststeveking.uk${entry.data.image}`;
+
 ---
 
 <Layout title={entry.data.title}>
@@ -38,46 +41,52 @@ const events = await getEntries(entry.data.events);
 
   <Section id="content">
     <Container classList="px-6 lg:px-8 py-24 sm:py-32">
-      <figure class="my-16">
-        <Image
-          class="aspect-auto w-full rounded-xl object-cover"
-          src={entry.data.image}
-          alt={entry.data.title}
-          height={600}
-          width={1080}
-        />
-        <figcaption class="mt-4 flex gap-x-2 text-sm leading-6">
-          <svg
-            class="mt-0.5 h-5 w-5 flex-none"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
-              clip-rule="evenodd"></path>
-          </svg>
-          {entry.data.title}
-        </figcaption>
-      </figure>
-
-      <article class="max-w-7xl px-6">
-        <header class="space-y-3">
-          <Subheading>Given at:</Subheading>
-          <List classList="list-outside">
-            {
-              events.map((event) => (
-                <ListItem>
-                  {event.data.name} {event.data.location} - {event.data.year}
-                </ListItem>
-              ))
-            }
-          </List>
-        </header>
-
-        <Content />
-      </article>
+      <div itemscope itemtype="http://schema.org/EducationEvent" itemid={url}>
+        <meta itemprop="name" content={entry.data.title} />
+        <meta itemprop="name" content={entry.data.description} />
+        <meta itemprop="image" content={imageUrl} />
+        <meta itemprop="mainEntityOfPage" content={url} />
+        <figure class="my-16">
+          <Image
+            class="aspect-auto w-full rounded-xl object-cover"
+            src={entry.data.image}
+            alt={entry.data.title}
+            height={600}
+            width={1080}
+          />
+          <figcaption class="mt-4 flex gap-x-2 text-sm leading-6">
+            <svg
+              class="mt-0.5 h-5 w-5 flex-none"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                clip-rule="evenodd"></path>
+            </svg>
+            {entry.data.title}
+          </figcaption>
+        </figure>
+  
+        <article class="max-w-7xl px-6">
+          <header class="space-y-3">
+            <Subheading>Given at:</Subheading>
+            <List classList="list-outside">
+              {
+                events.map((event) => (
+                  <ListItem>
+                    {event.data.name} {event.data.location} - {event.data.year}
+                  </ListItem>
+                ))
+              }
+            </List>
+          </header>
+  
+          <Content />
+        </article>
+      </div>
     </Container>
   </Section>
 </Layout>

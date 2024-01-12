@@ -27,6 +27,6 @@ export function GET(context: any) {
       link: `/articles/${post.slug}/`,
 		})),
     // (optional) inject custom xml
-    customData: `<language>en-us</language>`,
+    customData: `<language>en</language>`,
   });
 }
