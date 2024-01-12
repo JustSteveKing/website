@@ -1,5 +1,5 @@
 {
   "name": "ploi.io",
-  "logo": "https://github.com/ploi-deploy.png",
+  "logo": "./../../assets/images/logos/ploi.svg",
   "website": "https://ploi.io"
 }

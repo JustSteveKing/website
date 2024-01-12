@@ -48,11 +48,11 @@ const software = defineCollection({
 
 const sponsors = defineCollection({
   type: 'data',
-  schema: z.object({
+  schema: (({image}) => z.object({
     name: z.string(),
-    logo: z.string(),
+    logo: image(),
     website: z.string(),
-  }),
+  })),
 });
 
 const talks = defineCollection({
