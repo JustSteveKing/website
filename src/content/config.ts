@@ -51,6 +51,7 @@ const sponsors = defineCollection({
   schema: (({image}) => z.object({
     name: z.string(),
     logo: image(),
+    bio: z.string(),
     website: z.string(),
   })),
 });

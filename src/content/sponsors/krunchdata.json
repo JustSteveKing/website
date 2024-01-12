@@ -1,5 +1,6 @@
 {
   "name": "Krunchdata",
   "logo": "./../../assets/images/logos/krunch.svg",
-  "website": "https://krunchdata.io/"
+  "website": "https://krunchdata.io/",
+  "bio": "See how your posts, threads, tweets, videos, etc. convert your audience in different channels like Slack, Discord, Hackernews, Reddit, etc. & other social media."
 }

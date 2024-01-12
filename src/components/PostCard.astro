@@ -12,19 +12,19 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<article class="flex max-w-xl flex-col items-start justify-between py-6">
-  <div class="group relative py-3">
+<article class="flex max-w-xl flex-col items-start justify-between">
+  <div class="group relative space-y-4">
     <Subheading>
       <a title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`}>
         <span class="absolute inset-0"></span>
         {post.data.title}
       </a>
     </Subheading>
-    <Paragraph classList="mt-5 line-clamp-3">
+    <Paragraph classList="line-clamp-3">
       {post.data.description}
     </Paragraph>
   </div>
-  <div class="relative flex items-center gap-x-4">
+  <div class="relative flex items-center space-x-4 space-y-2">
     <Image
       src={'https://github.com/juststeveking.png'}
       alt="Steve McDougall"
@@ -32,7 +32,7 @@ const { post } = Astro.props;
       width={300}
       class="h-12 w-12 rounded-full"
     />
-    <div class="text-sm leading-6">
+    <div class="text-sm leading-7 tracking-wide">
       <Paragraph classList="font-semibold">
         Steve McDougall
       </Paragraph>

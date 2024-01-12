@@ -3,6 +3,8 @@ import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE, SITE_DESCRIPTION } from "./../config";
 import Meta from "../components/Meta.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+import Navigation from "../components/Navigation.astro";
+import Container from "../components/Container.astro";
 
 interface Props {
 	title?: string;
@@ -43,39 +45,25 @@ const date: Date = new Date();
 
 		<ViewTransitions />
 	</head>
-	<body
-		class="font-body h-full bg-zinc-50 dark:bg-slate-900 text-slate-900 dark:text-zinc-50"
-	>
-		<header class="py-10 fixed w-full z-50 bg-zinc-50 dark:bg-slate-900">
-			<nav class="h-full flex justify-center space-x-8 text-sm md:text-lg font-medium">
-				<a title="Visit Home Page" href="/" class="flex">Home</a>
-				<a title="Visit About Page" href="/about" class="flex">About</a>
-				<a title="Visit Talks Page" href="/talks" class="flex">Talks</a>
-				<a title="Visit Articles Page" href="/articles" class="flex">Articles</a
-				>
-				<a title="Visit Uses Page" href="/uses" class="flex">Uses</a>
-				<a title="Visit Now Page" href="/now" class="flex">Now</a>
-			</nav>
-		</header>
+	<body class="font-body h-full bg-zinc-50 dark:bg-slate-900 text-slate-900 dark:text-zinc-50">
+		
+		<Navigation />
 
 		<main class="py-48 overflow-x-hidden" transition:animate="fade">
 			<slot />
 		</main>
 
 		<footer>
-			<div
-				class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8"
-			>
+			<Container classList="px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
 				<div class="flex justify-center space-x-6 md:order-2">
 					<SocialLinks />
 				</div>
 				<div class="mt-8 md:order-1 md:mt-0">
-					<p class="text-md leading-5">
-						&copy; {date.getFullYear()}
-						{SITE_TITLE}. All rights reserved.
+					<p class="text-sm md:text-md leading-5 tracking-wide text-center md:text-left">
+						&copy; {date.getFullYear()} {SITE_TITLE}. All rights reserved.
 					</p>
 				</div>
-			</div>
+			</Container>
 		</footer>
 
 		<script is:inline src="/scripts/copy-btn.js"></script>

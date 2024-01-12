@@ -1,5 +1,6 @@
 {
   "name": "Treblle",
   "logo": "./../../assets/images/logos/treblle.svg",
-  "website": "https://www.treblle.com"
+  "website": "https://www.treblle.com",
+  "bio": "Treblle is a lightweight SDK that helps Engineering and Product teams build, ship & maintain REST based APIs faster"
 }

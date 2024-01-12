@@ -2,6 +2,7 @@
 import {Image} from 'astro:assets'
 import Layout from "../layouts/Layout.astro";
 
+import Container from '../components/Container.astro';
 import H2 from '../components/H2.astro';
 import Header from '../components/Header.astro';
 import Paragraph from '../components/Paragraph.astro';
@@ -11,18 +12,20 @@ import Subheading from '../components/Subheading.astro';
 import laracon from '../assets/images/laracon-eu.jpg'
 ---
 <Layout>
-  <Section id="hero" classList="max-w-7xl mx-auto py-36 px-4">
-		<Header>
-			Who is Steve?
-		</Header>
-		<Subheading classList={'max-w-2xl mt-6'}>
-      Meet Steve McDougall, also known as JustSteveKing, a passionate software engineer, Developer Advocate, and Laravel enthusiast from the Welsh Valleys, UK.
-		</Subheading>
+  <Section id="hero">
+		<Container classList="py-20 md:py-36 px-6 md:px-10 space-y-12">
+			<Header>
+				Who is Steve?
+			</Header>
+			<Subheading classList={'max-w-2xl my-6'}>
+        Meet Steve McDougall, also known as JustSteveKing, a passionate software engineer, Developer Advocate, and Laravel enthusiast from the Welsh Valleys, UK.
+			</Subheading>
+		</Container>
 	</Section>
 
   <Section id="about">
     <div class="relative">
-      <div class="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">
+      <Container classList="lg:flex lg:justify-between lg:px-8 xl:justify-end">
         <div class="lg:flex lg:w-1/2 lg:shrink lg:grow-0 xl:absolute xl:inset-y-0 xl:right-1/2 xl:w-1/2">
           <div class="relative h-80 lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
             <Image
@@ -59,7 +62,7 @@ import laracon from '../assets/images/laracon-eu.jpg'
             </Paragraph>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   </Section>
 </Layout>

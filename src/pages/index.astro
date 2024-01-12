@@ -3,6 +3,10 @@ import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
+import {
+	share,
+} from "./../lib";
+
 import H2 from '../components/H2.astro';
 import Header from '../components/Header.astro';
 import List from '../components/List.astro';
@@ -13,6 +17,7 @@ import SocialLinks from '../components/SocialLinks.astro';
 import Subheading from '../components/Subheading.astro';
 import { SITE_TITLE } from '../config';
 import PostCard from '../components/PostCard.astro';
+import Testimonial from "./../components/Testimonial.astro";
 
 import laracon from './../assets/images/laracon-eu.jpg';
 import speaking from './../assets/images/talking.png';
@@ -22,6 +27,7 @@ import phparch from '../assets/images/logos/phparch.svg';
 import laravelnews from '../assets/images/logos/laravelnews.svg';
 import youtubelogo from '../assets/images/logos/youtube.svg';
 import treblle from '../assets/images/logos/treblle.svg';
+import Container from '../components/Container.astro';
 
 const testimonials = await getCollection('testimonials');
 const testimonial = testimonials[Math.floor(Math.random() * testimonials.length)]
@@ -35,209 +41,210 @@ const sponsors = await getCollection('sponsors');
 ---
 
 <Layout>
-	<Section id="hero" classList="max-w-7xl mx-auto py-36 px-4">
-		<Header>
-			JustSteveKing
-		</Header>
-		<Subheading classList={'max-w-2xl mt-6'}>
-			Welcome to my website, the realm of the API Guy. Led by a seasoned Consultant CTO, Software Engineer, Developer Advocate, and renowned Conference Speaker.
-		</Subheading>
-		<div class="mt-6 flex gap-6">
-			<SocialLinks />
-		</div>
-	</Section>
-
-	<Section id="sponsors" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-		<div class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-			{sponsors.map(sponsor => (
-				<Image
-					class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 text-black dark:text-white"
-					src={sponsor.data.logo}
-					alt={sponsor.data.name}
-					width={158}
-					height={48}
-				/>
-			))}
-		</div>
-		<div class="mt-16 flex justify-center">
-			<Paragraph classList="relative px-4 py-1.5">
-				<span class="hidden md:inline tracking-wide leading-9">
-					Checkout my sponsors, they do awesome things! I only accept sponsors I believe in or would actually use.<br />
-					Interested? Reach out on twitter.
-				</span>
-			</Paragraph>
-		</div>
-	</Section>
-
-	<Section id="about" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-		<div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-			<div class="lg:pl-20">
-				<div class="max-w-xs px-2.5 lg:max-w-none">
-					<Image
-						src={laracon}
-						alt={SITE_TITLE}
-						class="aspect-auto rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-						height={800}
-						width={800}
-					/>
-				</div>
+	<Section id="hero">
+		<Container classList="py-20 md:py-36 px-6 md:px-10 space-y-12">
+			<Header>
+				JustSteveKing
+			</Header>
+			<Subheading classList={'max-w-2xl my-6'}>
+				Welcome to my website, the realm of the API Guy. Led by a seasoned Consultant CTO, Software Engineer, Developer Advocate, and renowned Conference Speaker.
+			</Subheading>
+			<div class="flex gap-6">
+				<SocialLinks />
 			</div>
-			<div class="lg:order-first lg:row-span-2">
-				<H2>
-					Who is Steve?
-				</H2>
-				<div class="mt-6 space-y-7 text-base">
-					<Paragraph>
-						Hey there! I'm Steve McDougall, but in the tech community, I'm often known as JustSteveKing. I'm a tech enthusiast from the scenic Welsh Valleys who loves diving into the complexities of software engineering, especially PHP and Laravel.
-					</Paragraph>
-					<Paragraph>
-						My day-to-day role as a Developer Advocate at Treblle has me exploring the intricacies of REST-based APIs. It's a space where I get to blend my technical skills with my passion for making complex things simple for other engineers and DevOps teams.
-					</Paragraph>
-					<Paragraph>
-						But that's just one side of the coin. In the digital realm, I'm also deeply engaged in sharing knowledge and experiences. Whether it's through my writings, my YouTube channel, or speaking at various tech events, I'm all about demystifying technology and empowering fellow developers.
-					</Paragraph>
-					<Paragraph>
-						I believe in the power of community and continual learning. For me, it's not just about writing code; it's about connecting, sharing, and growing together. So, join me on this journey of exploration and discovery in the world of tech!
-					</Paragraph>
-				</div>
-			</div>
-			<List classList="lg:pl-20">
-				<ListItem classList="flex">
-					<a title="Visit the Treblle website" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href="#">
-						<Image
-							src={treblle}
-							alt={'Treblle'}
-							height={24}
-							width={24}
-							class="h-6 w-6 flex-none transition"
-						/>
-						<span class="ml-4">Developer Relations at Treblle</span>
-					</a>
-				</ListItem>
-				<ListItem classList="flex">
-					<a title="Visit my YouTube Channel" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href="#">
-						<Image
-							src={youtubelogo}
-							alt={'YouTube'}
-							height={24}
-							width={24}
-							class="h-6 w-6 flex-none transition"
-						/>
-						<span class="ml-4">Content Creator on YouTube</span>
-					</a>
-				</ListItem>
-				<ListItem classList="flex">
-					<a title="Visit Laravel News" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href="#">
-						<Image
-							src={laravelnews}
-							alt={'Laravel News'}
-							height={24}
-							width={24}
-							class="h-6 w-6 flex-none transition"
-						/>
-						<span class="ml-4">Writer at Laravel News</span>
-					</a>
-				</ListItem>
-				<ListItem classList="flex">
-					<a title="Visit PHP Architect" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href="#">
-						<Image
-							src={phparch}
-							alt={'PHP Architect'}
-							height={24}
-							width={24}
-							class="h-6 w-6 flex-none transition"
-						/>
-						<span class="ml-4">Columnist at PhpArchitect</span>
-					</a>
-				</ListItem>
-			</List>
-		</div>
+		</Container>
 	</Section>
 
-	<Section id="blog" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-		<H2>
-			Latest Posts
-		</H2>
-		<Subheading>
-			A collection of my latest blog posts.
-		</Subheading>
-
-		<div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-			{posts.slice(0,6).map(post => (
-				<PostCard post={post} />
-			))}
-		</div>
-	</Section>
-
-	<Section id="testimonials" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-		<div class="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-4xl">
-			<div class="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 opacity-20 lg:left-36"></div>
-			<div class="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] shadow-2xl sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center"></div>
-			<figure class="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
-				<div class="relative col-span-2 lg:col-start-1 lg:row-start-2">
-					<svg viewBox="0 0 162 128" fill="none" aria-hidden="true" class="absolute -top-12 left-0 -z-10 h-32 stroke-gray-900/20 dark:stroke-gray-50/20">
-						<path id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z" />
-						<use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86" />
-					</svg>
-					<blockquote>
-						<Paragraph classList="font-semibold">
-							{testimonial.data.content}
-						</Paragraph>
-					</blockquote>
-				</div>
-				<div class="col-end-1 w-16 lg:row-span-4 lg:w-72">
-					<Image
-						src={testimonial.data.avatar}
-						alt={testimonial.data.name}
-						class="rounded-xl lg:rounded-3xl"
-						height={400}
-						width={400}
-					/>
-				</div>
-				<figcaption class="text-base lg:col-start-1 lg:row-start-3">
-					<div class="font-semibold">{testimonial.data.name}</div>
-					<div class="mt-1">{testimonial.data.role} at {testimonial.data.company}</div>
-				</figcaption>
-			</figure>
-		</div>
-	</Section>
-
-	<Section id="work" classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-		<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
-			<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8 space-y-3">
-				<H2>
-					Want to work with me?
-				</H2>
-				<Paragraph>
-					I reguarly work with others giving talks, mentoring, and consulting. Feel free to reach out on any of my social channels if you want to work together.
+	<Section id="sponsors">
+		<Container classList="py-20 md:py-36 px-6 md:px-10">
+			<div class="mt-16 flex justify-left">
+				<Paragraph classList="text-xl relative px-4 py-1.5">
+					<span class="hidden md:inline leading-9">
+						Checkout my sponsors, they do awesome things! I only accept sponsors I believe in or would actually use.<br />
+						Interested? Reach out on twitter.
+					</span>
 				</Paragraph>
 			</div>
-			<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
-				<div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-					<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+				{sponsors.map((sponsor) => (
+					<a target="_blank" rel="noopener nofollow" href={share(sponsor.data.website, 'sponsor', 'juststeveking+sponsorship')} class="col-span-1 flex flex-col gap-10 pt-6 md:pt-12 sm:flex-row">
+							<Image
+								src={sponsor.data.logo}
+								alt={sponsor.data.name}
+								width={158}
+								height={48}
+								class="aspect-[4/5] w-36 md:w-52 flex-none rounded-2xl object-contain"
+							/>
+							<div class="max-w-xl flex-auto">
+								<h3 class="text-lg font-semibold leading-8 tracking-wider">
+									{sponsor.data.name}
+								</h3>
+								<p class="text-sm md:text-md leading-7">
+									{sponsor.data.website}
+								</p>
+								<p class="mt-6 text-base leading-7 text-gray-600">
+									{sponsor.data.bio}
+								</p>
+							</div>
+						</a>
+				))}
+			</div>
+		</Container>
+	</Section>
+
+	<Section id="about">
+		<Container classList="px-6 lg:px-8 py-24 sm:py-32">
+			<div class="grid grid-cols-1 gap-y-6 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+				<div class="lg:pl-20">
+					<div class="max-w-xs px-2.5 lg:max-w-none">
 						<Image
-							src={speaking}
-							class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl object-cover object-top"
-							alt={'Speaking'}
-						/>
-					</div>
-					<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-						<Image
-							src={youtube}
-							alt={'YouTube'}
-							class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl object-cover object-center"
-						/>
-					</div>
-					<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-						<Image
-							src={writing}
-							alt={'Writing'}
-							class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl object-cover object-top"
+							src={laracon}
+							alt={SITE_TITLE}
+							class="aspect-auto rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+							height={800}
+							width={800}
 						/>
 					</div>
 				</div>
+				<div class="lg:order-first lg:row-span-2">
+					<H2>
+						Who is Steve?
+					</H2>
+					<div class="mt-6 space-y-6 md:space-y-12 text-base">
+						<Paragraph>
+							Hey there! I'm Steve McDougall, but in the tech community, I'm often known as JustSteveKing. I'm a tech enthusiast from the scenic Welsh Valleys who loves diving into the complexities of software engineering, especially PHP and Laravel.
+						</Paragraph>
+						<Paragraph>
+							My day-to-day role as a Developer Advocate at Treblle has me exploring the intricacies of REST-based APIs. It's a space where I get to blend my technical skills with my passion for making complex things simple for other engineers and DevOps teams.
+						</Paragraph>
+						<Paragraph>
+							But that's just one side of the coin. In the digital realm, I'm also deeply engaged in sharing knowledge and experiences. Whether it's through my writings, my YouTube channel, or speaking at various tech events, I'm all about demystifying technology and empowering fellow developers.
+						</Paragraph>
+						<Paragraph>
+							I believe in the power of community and continual learning. For me, it's not just about writing code; it's about connecting, sharing, and growing together. So, join me on this journey of exploration and discovery in the world of tech!
+						</Paragraph>
+					</div>
+				</div>
+				<List classList="lg:pl-20">
+					<ListItem classList="flex">
+						<a target="_blank" rel="noopener nofollow" title="Visit the Treblle website" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href={share('https://www.treblle.com/', 'work', 'juststeveking+website')}>
+							<Image
+								src={treblle}
+								alt={'Treblle'}
+								height={24}
+								width={24}
+								class="h-6 w-6 flex-none transition"
+							/>
+							<span class="ml-4">Developer Relations at Treblle</span>
+						</a>
+					</ListItem>
+					<ListItem classList="flex">
+						<a target="_blank" rel="noopener nofollow" title="Visit my YouTube Channel" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href={share('https://www.youtube.com/c/juststeveking', 'work', 'juststeveking+website')}>
+							<Image
+								src={youtubelogo}
+								alt={'YouTube'}
+								height={24}
+								width={24}
+								class="h-6 w-6 flex-none transition"
+							/>
+							<span class="ml-4">Content Creator on YouTube</span>
+						</a>
+					</ListItem>
+					<ListItem classList="flex">
+						<a target="_blank" rel="noopener nofollow" title="Visit Laravel News" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href={share('https://laravel-news.com/@juststeveking', 'work', 'juststeveking+website')}>
+							<Image
+								src={laravelnews}
+								alt={'Laravel News'}
+								height={24}
+								width={24}
+								class="h-6 w-6 flex-none transition"
+							/>
+							<span class="ml-4">Writer at Laravel News</span>
+						</a>
+					</ListItem>
+					<ListItem classList="flex">
+						<a target="_blank" rel="noopener nofollow" title="Visit Laravel News" class="group flex text-sm font-medium text-zinc-800 transition hover:underline" href={share('https://www.phparch.com/community/steve-mcdougall/', 'work', 'juststeveking+website')}>
+							<Image
+								src={phparch}
+								alt={'PHP Architect'}
+								height={24}
+								width={24}
+								class="h-6 w-6 flex-none transition"
+							/>
+							<span class="ml-4">Columnist at PhpArchitect</span>
+						</a>
+					</ListItem>
+				</List>
 			</div>
-		</div>
+		</Container>
+	</Section>
+
+	<Section id="blog">
+		<Container classList="px-6 lg:px-8 py-24 sm:py-32">
+			<H2>
+				Latest Posts
+			</H2>
+			<Subheading>
+				A collection of my latest blog posts.
+			</Subheading>
+	
+			<div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-6 md:gap-y-12 gap-y-6 md:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+				{posts.slice(0,6).map(post => (
+					<PostCard post={post} />
+				))}
+			</div>
+		</Container>
+	</Section>
+
+	<Section id="testimonials">
+		<Container classList="px-6 lg:px-8 py-24 sm:py-32">
+			<div class="relative mx-auto max-w-2xl py-24 sm:py-32 lg:max-w-4xl">
+				<div class="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 opacity-20 lg:left-36"></div>
+				<div class="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] shadow-2xl sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center"></div>
+
+				<Testimonial testimonial={testimonial}/>
+			</div>
+		</Container>
+	</Section>
+
+	<Section id="work">
+		<Container classList="px-6 lg:px-8 py-24 sm:py-32">
+			<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
+				<div class="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8 space-y-4">
+					<H2>
+						Want to work with me?
+					</H2>
+					<Paragraph>
+						I reguarly work with others giving talks, mentoring, and consulting. Feel free to reach out on any of my social channels if you want to work together.
+					</Paragraph>
+				</div>
+				<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
+					<div class="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
+						<div class="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+							<Image
+								src={speaking}
+								class="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl object-cover object-top"
+								alt={'Speaking'}
+							/>
+						</div>
+						<div class="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+							<Image
+								src={youtube}
+								alt={'YouTube'}
+								class="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl object-cover object-center"
+							/>
+						</div>
+						<div class="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+							<Image
+								src={writing}
+								alt={'Writing'}
+								class="aspect-[4/3] w-[24rem] max-w-none rounded-2xl object-cover object-top"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</Container>
 	</Section>
 </Layout>
 

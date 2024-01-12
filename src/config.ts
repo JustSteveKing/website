@@ -32,3 +32,8 @@ export const FATHOM_SITE: string = 'SGJKEWOR';
 export const SCHEMA_NAME = 'Steve McDougall';
 export const SCHEMA_URL = 'https://www.juststeveking.uk/';
 export const SCHEMA_IMAGE = '';
+
+// Share UTM
+export const UTM_CAMPAIGN: string = 'juststeveking';
+export const UTM_SOURCE: string = 'juststeveking.uk';
+export const UTM_MEDIUM: string = '';
