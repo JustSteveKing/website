@@ -3,13 +3,13 @@ import Container from "./Container.astro"
 ---
 <header class="fixed w-full z-50 py-6 bg-slate-50 dark:bg-slate-950">
   <Container>
-    <nav class="flex items-start justify-center space-x-4 md:space-x-12">
-      <a title="Visit Home Page" href="/" class="flex">Home</a>
-      <a title="Visit About Page" href="/about" class="flex">About</a>
-      <a title="Visit Talks Page" href="/talks" class="flex">Talks</a>
-      <a title="Visit Articles Page" href="/articles" class="flex">Articles</a>
-      <a title="Visit Uses Page" href="/uses" class="flex">Uses</a>
-      <a title="Visit Now Page" href="/now" class="flex">Now</a>
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="flex items-start justify-center space-x-4 md:space-x-12">
+      <a itemprop="url" title="Visit Home Page" href="/" class="flex">Home</a>
+      <a itemprop="url" title="Visit About Page" href="/about" class="flex">About</a>
+      <a itemprop="url" title="Visit Talks Page" href="/talks" class="flex">Talks</a>
+      <a itemprop="url" title="Visit Articles Page" href="/articles" class="flex">Articles</a>
+      <a itemprop="url" title="Visit Uses Page" href="/uses" class="flex">Uses</a>
+      <a itemprop="url" title="Visit Now Page" href="/now" class="flex">Now</a>
     </nav>
   </Container>
 </header>
