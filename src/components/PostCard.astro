@@ -10,18 +10,25 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const image: string = `/images/articles/${post.data.image}`;
+const url: string = `https://www.juststeveking.uk${Astro.url.pathname}`;
+const imageUrl: string = `https://www.juststeveking.uk${image}`;
+
+const { Content } = await post.render();
 ---
 
-<article class="flex max-w-xl flex-col items-start justify-between">
+<article itemscope itemtype="https://schema.org/BlogPosting" itemid={url} class="flex max-w-xl flex-col items-start justify-between">
+  <meta itemprop="image" content={imageUrl} />
+  <meta itemprop="articleBody" />
   <div class="group relative space-y-4">
     <Subheading>
-      <a title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`}>
+      <a itemprop="name" title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`}>
         <span class="absolute inset-0"></span>
         {post.data.title}
       </a>
     </Subheading>
     <Paragraph classList="line-clamp-3">
-      {post.data.description}
+      <span itemprop="description">{post.data.description}</span>
     </Paragraph>
   </div>
   <div class="relative flex items-center space-x-4 space-y-2">
