@@ -7,7 +7,8 @@ import {
 	share,
 } from "./../lib";
 
-import LatestPosts from "./../components/LatestPosts.vue";
+import { default as LatestPosts } from "./../components/LatestPosts.vue";
+import { default as Testimonal } from "./../components/Testimonal.vue";
 import H2 from '../components/H2.astro';
 import Header from '../components/Header.astro';
 import List from '../components/List.astro';
@@ -17,8 +18,6 @@ import Section from '../components/Section.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import Subheading from '../components/Subheading.astro';
 import { SITE_TITLE } from '../config';
-import PostCard from '../components/PostCard.astro';
-import Testimonial from "./../components/Testimonial.astro";
 
 import laracon from './../assets/images/laracon-eu.jpg';
 import speaking from './../assets/images/talking.png';
@@ -31,7 +30,6 @@ import treblle from '../assets/images/logos/treblle.svg';
 import Container from '../components/Container.astro';
 
 const testimonials = await getCollection('testimonials');
-const testimonial = testimonials[Math.floor(Math.random() * testimonials.length)]
 
 const collection = await getCollection('posts');
 const posts = collection.sort(
@@ -200,7 +198,7 @@ const sponsors = await getCollection('sponsors');
 				<div class="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 opacity-20 lg:left-36"></div>
 				<div class="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] shadow-2xl sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center"></div>
 
-				<Testimonial testimonial={testimonial}/>
+				<Testimonal client:visible testimonials={testimonials} />
 			</div>
 		</Container>
 	</Section>
