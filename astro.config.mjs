@@ -4,6 +4,8 @@ import partytown from "@astrojs/partytown";
 import prefetch from "@astrojs/prefetch";
 import mdx from "@astrojs/mdx";
 import webmanifest from "astro-webmanifest";
+import vue from '@astrojs/vue';
+
 
 import {
   SITE_TITLE,
@@ -27,5 +29,6 @@ export default defineConfig({
       theme_color: '#2dd4bf',
       background_color: '#fafafa'
     }),
+    vue(),
   ]
 });

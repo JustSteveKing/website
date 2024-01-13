@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content';
 
 import Paragraph from './Paragraph.astro';
@@ -13,8 +12,6 @@ const { post } = Astro.props;
 const image: string = `/images/articles/${post.data.image}`;
 const url: string = `https://www.juststeveking.uk${Astro.url.pathname}`;
 const imageUrl: string = `https://www.juststeveking.uk${image}`;
-
-const { Content } = await post.render();
 ---
 
 <article itemscope itemtype="https://schema.org/BlogPosting" itemid={url} class="flex max-w-xl flex-col items-start justify-between">
@@ -30,22 +27,5 @@ const { Content } = await post.render();
     <Paragraph classList="line-clamp-3">
       <span itemprop="description">{post.data.description}</span>
     </Paragraph>
-  </div>
-  <div class="relative flex items-center space-x-4 space-y-2">
-    <Image
-      src={'https://github.com/juststeveking.png'}
-      alt="Steve McDougall"
-      height={300}
-      width={300}
-      class="h-12 w-12 rounded-full"
-    />
-    <div class="text-sm leading-7 tracking-wide">
-      <Paragraph classList="font-semibold">
-        Steve McDougall
-      </Paragraph>
-      <Paragraph>
-        Developer Relations @ Treblle
-      </Paragraph>
-    </div>
   </div>
 </article>

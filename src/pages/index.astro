@@ -7,6 +7,7 @@ import {
 	share,
 } from "./../lib";
 
+import LatestPosts from "./../components/LatestPosts.vue";
 import H2 from '../components/H2.astro';
 import Header from '../components/Header.astro';
 import List from '../components/List.astro';
@@ -187,12 +188,9 @@ const sponsors = await getCollection('sponsors');
 			<Subheading>
 				A collection of my latest blog posts.
 			</Subheading>
+
+			<LatestPosts posts={posts.slice(0,6)} client:visible />
 	
-			<div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-6 md:gap-y-12 gap-y-6 md:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-				{posts.slice(0,6).map(post => (
-					<PostCard post={post} />
-				))}
-			</div>
 		</Container>
 	</Section>
 
