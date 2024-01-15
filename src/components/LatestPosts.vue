@@ -6,14 +6,20 @@ const props = defineProps({
     type: Array<CollectionEntry<'posts'>>,
   }
 })
+</script>
 
-const format = (date: Date): string => {
-  return date.toLocaleDateString('en-us', {
-    weekday: "long",
-    month: "short",
-    year: "numeric",
-    day: "numeric",
-  })
+<script lang="ts">
+export default {
+  methods: {
+    format(date: Date): string {
+      return date.toLocaleDateString('en-us', {
+        weekday: "long",
+        month: "short",
+        year: "numeric",
+        day: "numeric",
+      })
+    }
+  }
 }
 </script>
 

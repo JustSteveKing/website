@@ -58,6 +58,9 @@ devDependencies:
   schema-dts:
     specifier: ^1.1.2
     version: 1.1.2(typescript@5.3.3)
+  swiper:
+    specifier: ^11.0.5
+    version: 11.0.5
   vue:
     specifier: ^3.4.13
     version: 3.4.13(typescript@5.3.3)
@@ -4686,6 +4689,11 @@ packages:
       csso: 5.0.5
       picocolors: 1.0.0
     dev: false
+
+  /swiper@11.0.5:
+    resolution: {integrity: sha512-rhCwupqSyRnWrtNzWzemnBLMoyYuoDgGgspAm/8iBD3jCvAWycPLH4Z3TB0O5520DHLzMx94yUMH/B9Efpa48w==}
+    engines: {node: '>= 4.7.0'}
+    dev: true
 
   /tailwindcss@3.3.6:
     resolution: {integrity: sha512-AKjF7qbbLvLaPieoKeTjG1+FyNZT6KaJMJPFeQyLfIp7l82ggH1fbHJSsYIvnbTFQOlkh+gBYpyby5GT1LIdLw==}

@@ -29,6 +29,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "astro-seo-schema": "^4.0.0",
     "schema-dts": "^1.1.2",
+    "swiper": "^11.0.5",
     "vue": "^3.4.13"
   }
 }
