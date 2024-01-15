@@ -4,7 +4,7 @@ pubDate: 2023-02-23
 image: laravel-ci-with-github-actions.png
 source: https://laravel-news.com/laravel-ci-with-github-action
 partner: Laravel News
-description: Streamline Laravel projects with GitHub Actions for CI. Learn how to automate testing and static analysis, ensuring high code standards with PHPStan. This tutorial guides you through setting up effective GitHub workflows for Laravel CI.
+description: Automate Laravel CI with GitHub Actions - Learn testing, PHPStan static analysis setup in this tutorial.
 ---
 
 GitHub Actions is a fantastic way to run your Continuous Integration workflows, from running your tests to checking static analysis and more.

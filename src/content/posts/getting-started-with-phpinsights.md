@@ -4,7 +4,7 @@ pubDate: 2023-02-16
 image: getting-started-with-phpinsights.png
 source: https://laravel-news.com/getting-started-with-phpinsights
 partner: Laravel News
-description: Maximize your PHP code quality with PHPInsights; A comprehensive guide to using Nuno Maduro's PHPInsights in Laravel and other frameworks for optimal code style and architecture.
+description: Use PHPInsights to enhance PHP code in Laravel and others - A guide to optimal code style and architecture.
 ---
 
 PHPInsights is a composer package created by Nuno Maduro and is a fantastic tool to get started with analyzing the code quality of your PHP applications.
