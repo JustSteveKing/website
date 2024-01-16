@@ -8,7 +8,7 @@ description: We all use URLs in our day-to-day lives, whether we are technical o
 
 We all use URLs in our day-to-day lives, whether we are technical or not. But what are the different parts of it? Let's jump right into **unpacking the URL!**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3iI7s0u1uJ0?si=A6EIIVwoFitgUaGL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/3iI7s0u1uJ0?si=A6EIIVwoFitgUaGL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Usually, we see a URL and pay it no attention. URLs often go unnoticed, yet for developers, grasping their distinct components, functions, and optimal application is paramount.
 
@@ -39,7 +39,7 @@ This process unfolds across three layers: **the sub-domain, domain, and top-leve
 - domain
 - .com
 
-<img src="https://media.tenor.com/DPBUhUBoiNsAAAAC/rambow-internet.gif" class="kg-image lightense-target" alt="" loading="lazy" width="498" height="280">
+<img src="https://media.tenor.com/DPBUhUBoiNsAAAAC/rambow-internet.gif" class="w-full aspect-video" alt="I'm gonna do an internet" loading="lazy" width="498" height="280">
 
 These segments, such as "www," the primary domain name, and the domain extension like ".com," collectively constitute the address's distinctive identity.
 
@@ -87,7 +87,7 @@ https://www.domain/com/path/to/something?search=api+analytics&filter[publisher]=
 
 These parameter-infused URLs serve as a testament to the profound role parameters play in shaping the digital experience. By orchestrating this symphony of parameters, users are bestowed with an interactive journey. Developers, in turn, wield these tools to design user interfaces that are intuitive, user-friendly, and capable of catering to diverse preferences.
 
-<img src="https://media.tenor.com/fa9ndSLqGXIAAAAC/rosemary-its-intuition.gif" class="kg-image lightense-target" alt="" loading="lazy" width="478" height="268">
+<img src="https://media.tenor.com/fa9ndSLqGXIAAAAC/rosemary-its-intuition.gif" class="w-full aspect-video" alt="intuition" loading="lazy" width="478" height="268">
 
 This level of customization amplifies engagement and empowers users by putting them at the helm of their digital odyssey. The artistry of URL parameters is that they deftly transform static web pages into dynamic, personalized experiences. Whether summoning specific topics, filtering by origin, or altering content order, parameters provide the agency to curate the digital milieu according to individual whims.
 
@@ -105,7 +105,7 @@ This component serves as a discreet directive, guiding your arrival to an exact 
 
 The fragment encapsulates precision in digital navigation. It's comparable to a GPS coordinate, pinpointing your intended destination on a sprawling digital map. Whether it leads to a specific paragraph in a lengthy article, a visual element on a multimedia page, or a module within a web application, the fragment acts as a virtual compass, streamlining your journey.
 
-<img src="https://media.tenor.com/GjKxIPSfUfUAAAAC/gps-im-your-gps.gif" class="kg-image lightense-target" alt="" loading="lazy" width="420" height="214">
+<img src="https://media.tenor.com/GjKxIPSfUfUAAAAC/gps-im-your-gps.gif" class="w-full aspect-video" alt="I'm your GPS" loading="lazy" width="420" height="214">
 
 For instance, if you're perusing a lengthy online article and wish to revisit a particular point later, appending a fragment to the URL would ensure that the page opens directly at that chosen juncture when revisited.
 
@@ -113,4 +113,4 @@ In essence, the fragment elegantly streamlines the browsing experience, offering
 
 That is how to unpack a URL.
 
-<img src="https://media.tenor.com/hEV7xHdXGzgAAAAC/goodbye.gif" class="kg-image lightense-target" alt="" loading="lazy" width="498" height="370">
+<img src="https://media.tenor.com/hEV7xHdXGzgAAAAC/goodbye.gif" class="w-full aspect-video" alt="Goodbye" loading="lazy" width="498" height="370">
