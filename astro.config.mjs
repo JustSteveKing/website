@@ -15,6 +15,9 @@ import {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.juststeveking.uk',
+  redirects: {
+    "/blog/[...slug]": "/articles/[...slug]"
+  },
   integrations: [
     tailwind(),
     partytown(),
