@@ -28,6 +28,7 @@ import laravelnews from '../assets/images/logos/laravelnews.svg';
 import youtubelogo from '../assets/images/logos/youtube.svg';
 import treblle from '../assets/images/logos/treblle.svg';
 import Container from '../components/Container.astro';
+import Link from '../components/Link.astro';
 
 const collection = await getCollection('posts');
 const posts = collection.sort(
@@ -210,6 +211,9 @@ const sponsors = await getCollection('sponsors');
 					</H2>
 					<Paragraph>
 						I reguarly work with others giving talks, mentoring, and consulting. Feel free to reach out on any of my social channels if you want to work together.
+					</Paragraph>
+					<Paragraph>
+						If you are interested, I have made my website analytics open on Fathom Analytics, you can see it <Link link={'https://app.usefathom.com/share/sgjkewor/juststeveking.uk'} title={'View my website Analytics'}>here.</Link>
 					</Paragraph>
 				</div>
 				<div class="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
