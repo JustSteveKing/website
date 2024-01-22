@@ -4,6 +4,7 @@ pubDate: 2023-11-20
 image: unpacking-a-url.png
 partner: Treblle
 description: We all use URLs in our day-to-day lives, whether we are technical or not. But what are the different parts of a URL? Read on the learn more.
+source: https://blog.treblle.com/unpacking-the-url/
 ---
 
 We all use URLs in our day-to-day lives, whether we are technical or not. But what are the different parts of it? Let's jump right into **unpacking the URL!**
