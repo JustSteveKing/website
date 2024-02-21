@@ -15,6 +15,7 @@ import {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.juststeveking.uk',
+  prefetch: true,
   redirects: {
     "/blog/[...slug]": "/articles/[...slug]"
   },
