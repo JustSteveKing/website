@@ -37,13 +37,13 @@ export default {
       <div class="max-w-xl space-y-4">
         <div class="mt-8 flex items-center gap-x-4 text-xs">
           <time datetime="{{ datetime(post.data.pubDate) }}">{{ format(post.data.pubDate) }}</time>
-          <a :href="`/articles/${post.slug}`" class="relative z-10 rounded-full px-3 py-1.5 font-medium">
+          <a :href="`/articles/${post.slug}`" class="relative z-10 rounded-full px-3 py-1.5 font-medium" data-astro-prefetch="viewport">
             {{ post.data.partner ? post.data.partner : 'original' }}
           </a>
         </div>
         <div class="group">
           <h3 class="text-lg font-semibold leading-6">
-            <a :href="`/articles/${post.slug}`">
+            <a :href="`/articles/${post.slug}`" data-astro-prefetch="viewport">
               {{ post.data.title }}
             </a>
           </h3>

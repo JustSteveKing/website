@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import partytown from "@astrojs/partytown";
-import prefetch from "@astrojs/prefetch";
 import mdx from "@astrojs/mdx";
 import webmanifest from "astro-webmanifest";
 import vue from '@astrojs/vue';
@@ -22,7 +21,6 @@ export default defineConfig({
   integrations: [
     tailwind(),
     partytown(),
-    prefetch(),
     mdx(),
     webmanifest({
       name: SITE_TITLE,

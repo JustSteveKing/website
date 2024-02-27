@@ -45,7 +45,7 @@ const talks = await getCollection('talks');
             </div>
             <div class="group relative max-w-xl">
               <Subheading classList="font-semibold">
-                <a href={`/talks/${talk.slug}`}>
+                <a href={`/talks/${talk.slug}`} data-astro-prefetch="viewport">
                   <span class="absolute inset-0"></span>
                   {talk.data.title}
                 </a>

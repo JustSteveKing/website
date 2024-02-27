@@ -19,7 +19,7 @@ const imageUrl: string = `https://www.juststeveking.uk${image}`;
   <meta itemprop="articleBody" />
   <div class="group relative space-y-4">
     <Subheading>
-      <a itemprop="name" title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`}>
+      <a itemprop="name" title={`Read: ${post.data.title}`} href={`/articles/${post.slug}`} data-astro-prefetch="viewport">
         <span class="absolute inset-0"></span>
         {post.data.title}
       </a>
