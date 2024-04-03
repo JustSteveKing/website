@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "../../layouts/Layout.astro";
+
+import Container from "../../components/Container.astro";
+import Section from "../../components/Section.astro";
+import Header from "../../components/Header.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("notes");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const url: string = `https://www.juststeveking.uk${Astro.url.pathname}`;
+---
+
+<Layout
+  title={entry.data.title}
+>
+  <Section id="hero">
+    <Container classList="py-20 md:py-36 px-6 md:px-10 space-y-12">
+      <Header>
+        {entry.data.title}
+      </Header>
+    </Container>
+  </Section>
+
+  <Section id="content">
+    <div itemscope itemtype="https://schema.org/BlogPosting" itemid={url}>
+      <meta itemprop="name" content={entry.data.title} />
+
+      <Container classList="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+        <article
+          class="prose lg:prose-xl max-w-7xl px-6 prose-code:py-4 prose-code:px-1 prose-a:text-slate-700 dark:prose-a:text-slate-200 prose-pre:text-black dark:prose-pre:text-white dark:prose-p:text-white dark:prose-h2:text-white dark:prose-h3:text-white dark:prose-code:text-white"
+          itemprop="articleBody"
+        >
+          <Content />
+        </article>
+      </Container>
+    </div>
+  </Section>
+</Layout>
