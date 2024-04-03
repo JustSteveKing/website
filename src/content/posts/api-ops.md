@@ -1,6 +1,6 @@
 ---
 title: API Ops
-pubDate: 2024-04-17
+pubDate: 2024-04-03
 image: api-ops.webp
 description: Discover how API Ops revolutionizes API development, deployment, and management, fostering efficiency, collaboration, and excellence in the digital world.
 ---
