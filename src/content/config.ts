@@ -18,15 +18,6 @@ const hardware = defineCollection({
   }),
 });
 
-const notes = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-    tags: z.array(z.string())
-  }),
-});
-
 const posts = defineCollection({
   type: 'content',
   schema: z.object({
@@ -90,7 +81,6 @@ const testimonials = defineCollection({
 export const collections = {
   events,
   hardware,
-  notes,
   posts,
   services,
   software,
