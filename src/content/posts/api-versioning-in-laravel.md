@@ -3,7 +3,7 @@ title: API Versioning in Laravel - All you need to know
 pubDate: 2023-11-25
 image: api-versioning-in-laravel.png
 partner: Treblle
-source: https://blog.treblle.com/api-versioning-all-you-need-to-know/
+source: https://blog.treblle.com/content/images/size/w1750/2023/10/API-Versioning-in-Laravel.png
 description: All you need to know about API Versioning. What is it, what types of versioning exist, how are they used and why you might need it?
 ---
 
